@@ -1,11 +1,16 @@
-number = int(input("Enter the number: "))
-result = 0
-while True:
-    result = result + (number%10)
-    number = number // 10
-    if result < 10 and number == 0:
+import random
+random_number = random.randint(1,100)
+did_user_win = False
+for chance in range(6,0,-1):
+    guessed_number = int(input("Enter your number: "))
+    if guessed_number == random_number:
+        print("Hooray!... You have won")
+        did_user_win = True
         break
-    if number == 0:
-        number = result
-        result = 0
-print(result)
+    elif guessed_number > random_number:
+        print("Actual number is little bit lower than what you have guessed")
+    else:
+        print("Actual number is little bit higher than what you have guessed")
+    print(f"you have {chance-1} more chances")
+if not did_user_win:
+    print(" Bad luck try again.  ")
