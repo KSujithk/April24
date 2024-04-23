@@ -5,7 +5,7 @@ Author: shaikkhajaibrahim
 Date: 21/Apr/2024
 """
 
-def lumpsum(
+def returns(
         prinicpal,
         intrest_rate,
         time_in_years,
