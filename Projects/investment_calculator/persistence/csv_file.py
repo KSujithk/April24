@@ -20,7 +20,15 @@ def write_result(principal, interest_rate, time, investment_type, future_value):
     with open(RESULTS_FILE_PATH, 'a',newline='',encoding='utf-8') as file:
         results_writer = csv.writer(file)
         if not file_exists:
-            results_writer.writerow(['principal','interest_rate','time','investment_type','future_value'])
+            results_writer.writerow(
+                [
+                    'principal',
+                    'interest_rate',
+                    'time',
+                    'investment_type',
+                    'future_value'
+                    ]
+            )
         results_writer.writerow([principal,interest_rate,time,investment_type,future_value])
 
 def read_all_results():

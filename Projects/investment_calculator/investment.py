@@ -5,22 +5,15 @@ Author: shaikkhajaibrahim
 import argparse
 from calculators.lumpsum import returns as lumpsum_returns
 from calculators.sip import returns as sip_returns
-from persistence.csv_file import write_result
+from decorators.storage import store_in_csv
 
-def store_results(principal, time, rate, investment_type,future_value):
-    """
-    This method will store results in csv format
-    """
-    write_result(principal,rate,time,investment_type,future_value)
-
-
+@store_in_csv
 def print_result(principal, time, rate, investment_type,future_value):
     """
     This method prints the result
     """
-    store_results(principal,time, rate,investment_type,round(future_value,2))
     print(
-        f"For Your {investment_type} the  {principal} will be {round(future_value,2)} in next {time} years"
+        f"For Your {investment_type} the  {principal} will be {future_value} in next {time} years"
         )
 
 

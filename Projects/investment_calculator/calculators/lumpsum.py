@@ -19,4 +19,4 @@ def returns(
       n: Number of compounded interests in a year
     """
     result = prinicpal * (1 + ((intrest_rate/100)/n)) ** (n * time_in_years)
-    return result
+    return round(result,2)
