@@ -10,7 +10,7 @@
             "request": "launch",
             "program": "${file}",
             "console": "integratedTerminal",
-            "args": ["sip", "-p", "500", "-r","2", "-t", "2"]
+            "args": ["sip","-p", "1000", "-t", "10", "-r", "18"]
         }
     ]
 }

@@ -5,9 +5,9 @@ Author: shaikkhajaibrahim
 import argparse
 from calculators.lumpsum import returns as lumpsum_returns
 from calculators.sip import returns as sip_returns
-from decorators.storage import store_in_csv
+from decorators.storage import store_in_csv, store_in_json
 
-@store_in_csv
+@store_in_json
 def print_result(principal, time, rate, investment_type,future_value):
     """
     This method prints the result
