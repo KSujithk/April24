@@ -3,6 +3,7 @@ This test cases will be arround bank account
 """
 
 from learning.accounts.account import BankAccount, SavingsAccount, CurrentAccount
+from learning.accounts.exception import HighDepositException, NegativeBalanceException
 import pytest
 
 
@@ -32,13 +33,13 @@ def test_savings_account():
     my_savings_account = SavingsAccount(
         account_number="x12345", name="LT", initial_deposit=5000
     )
-    # to be fixed
     assert my_savings_account.account_type() == "Savings"
     assert my_savings_account.balance == 5000
     # try withdrawing more than account balance,
     # the balance should not change
     # todo: This operation should result in error
-    my_savings_account.withdraw(6000)
+    with pytest.raises(NegativeBalanceException):
+        my_savings_account.withdraw(6000)
 
     assert my_savings_account.balance == 5000
 
@@ -47,8 +48,8 @@ def test_savings_account():
     # now withdraw valid balance,it should be allowed
     my_savings_account.withdraw(6000)
     assert my_savings_account.balance == 0
-    # try depositing more than 10 lakhs and that should not be allowed
-    my_savings_account.deposit(1100000)
+    with pytest.raises(HighDepositException):
+        my_savings_account.deposit(1100000)
     assert my_savings_account.balance == 0
 
 
